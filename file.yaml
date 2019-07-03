@@ -1,0 +1,12 @@
+---
+ - hosts: web
+   tasks:
+     - name: create file
+       file:
+         path: /tmp/File1
+         state: touch
+     - name: create directory
+       file:
+         path: /tmp/Test1/Test2
+         state: directory
+         
