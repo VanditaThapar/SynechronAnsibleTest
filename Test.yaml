@@ -1,0 +1,15 @@
+---
+- hosts: web
+  tasks: 
+    - name: Deploying ngnix
+      package:            
+        name: nginx
+        state: present
+    - name: Stopping nginx
+      service:
+        name: nginx
+        state: stopped
+    - name: Starting nginx
+      service:
+        name: nginx
+        state: started  

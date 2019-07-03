@@ -8,5 +8,5 @@
      - name: create directory
        file:
          path: /tmp/Test1/Test2
-         state: directory
+         state: directory   
          
