@@ -1,0 +1,36 @@
+---
+- hosts: web
+  tasks:
+    - name: Create User Test with UID and dir name
+      user:
+        name: test
+        uid: 8888
+        home: /var/tmp/test
+        state: present
+    - name: Create group
+      group: 
+        name: grouptest
+        gid: 7777
+        state: present
+    - name: Create user and Group with name Usertest, shell bash, useridnad comments
+      user: 
+        name: usertest
+        uid: 6666
+        group: 7777
+        comment: My First Comment
+        home: /var/tmp/test
+        state: present
+    - name: Create directory
+      file:
+        path: /var/tmp/test/test1
+        state: directory
+        owner: root   
+    - name: Create File
+      file:
+        path: /var/tmp/test/test1/test2
+        state: touch
+        owner: test
+    - name: Copy Log Files
+      copy:
+        src: /var/log/syslog
+        dest: /var/tmp/test/test1/test2        
